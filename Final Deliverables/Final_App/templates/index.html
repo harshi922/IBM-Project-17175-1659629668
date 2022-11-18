@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="sviewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deployment</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.ico"
+    />
+    <!-- Load Require CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font CSS -->
+    <link href="assets/css/boxicon.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="assets/css/templatemo.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav
+      id="main_nav"
+      class="navbar navbar-expand-lg navbar-light bg-white shadow"
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand h1" href="/">
+          <i class="bx bx-buildings bx-sm text-dark"></i>
+          <span class="text-dark h4">IBM</span>
+          <span class="text-primary h4">Project</span>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-toggler-success"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+          id="navbar-toggler-success"
+        >
+          <div class="flex-fill mx-xl-5 mb-2">
+            <ul
+              class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link btn-outline-primary rounded-pill px-3"
+                  href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link btn-outline-primary rounded-pill px-3"
+                  href="/about"
+                  >Introduction</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link btn-outline-primary rounded-pill px-3"
+                  href="/predict"
+                  >Launch</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <h1 class="h1 text-primary p-5">
+      Predict Image is what class ? Upload your image
+    </h1>
+    <form
+      action="/predict"
+      method="POST"
+      enctype="multipart/form-data"
+      class="container input-group"
+    >
+      <span class="input-group-text btn btn-primary">Enter Image</span>
+      <input
+        type="file"
+        name="filea"
+        id="filea"
+        placeholder="image"
+        class="custom-file-input border-1"
+      />
+      <input type="submit" value="submit" class="btn btn-primary" />
+    </form>
+    <footer
+      class="foot"
+      style="position: fixed; width: 100%; left: 0; bottom: 0%"
+    >
+      <div class="w-100 bg-primary py-3">
+        <div class="container">
+          <p class="text-lg-start text-center text-light light-300">
+            Team Members: Harshitaa Y | Arun Pradeep K | Ashwini R | Bhavana M
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
