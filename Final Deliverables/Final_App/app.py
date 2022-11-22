@@ -7,6 +7,7 @@ from sklearn.metrics import pairwise
 from keras.models import load_model
 import time
 import gestures
+from ibm_watson_machine_learning import APIClient 
 # Flask-It is our framework which we are going to use to run/serve our application.
 #request-for accessing file which was uploaded by the user on our application.
 import operator
@@ -28,6 +29,16 @@ app = Flask(__name__,template_folder="templates", static_folder='static_files/')
 app_root = os.path.dirname(os.path.abspath(__file__))
 
 
+
+wml_credentials = {
+    "url" : "https://us-south.ml.cloud.ibm.com",
+    "apikey" : "pRICfPi2WUbjuVJApM8QDMwsEDATYi3NKb_6pouqq4ed"
+}
+client = APIClient(wml_credentials)
+
+def guid_from_space_name(client,space_name):
+    space=client.spaces.get_details()
+    return(next(item for item in space["resources"] if item["entity"]["name"]==space_name)["metadata"]["id"])
 
 def run_avg(image, accumWeight):
     global bg
@@ -62,10 +73,12 @@ def segment(image, threshold=25):
 
 def _load_weights():
     try:
-        model = load_model("new_train_model.h5")
-        # print(model.summary())
-        # print(model.get_weights())
-        # print(model.optimizer)
+        # space_uid = guid_from_space_name(client, "gestureidentification")
+        # print("Space UID=" + space_uid)
+        # client.set.default_space(space_uid)
+        # client.repository.download("ea40629b-9947-41c0-b0dc-123c51a6132f", "gesture-model.tgz")
+        # from keras.models import load_model
+        model = load_model("new_train_model_cloud.h5")
         return model
     except Exception as e:
         return None
